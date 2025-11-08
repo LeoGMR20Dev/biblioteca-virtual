@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @Component({
   selector: 'layout',
-  imports: [],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './layout.component.html',
-  styleUrl: './layout.component.css'
+  styleUrl: './layout.component.css',
 })
-export class LayoutComponent {
-
-}
+export default class LayoutComponent {}

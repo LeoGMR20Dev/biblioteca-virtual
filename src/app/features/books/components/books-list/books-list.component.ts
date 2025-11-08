@@ -1,5 +1,10 @@
 import { AsyncPipe, CommonModule } from '@angular/common';
-import { Component, inject, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  signal,
+} from '@angular/core';
 import { BooksService } from '../../services/books.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -10,6 +15,7 @@ import { IBook } from '../../interfaces/book.interface';
   imports: [AsyncPipe, CommonModule],
   templateUrl: './books-list.component.html',
   styleUrl: './books-list.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class BooksListComponent {
   private booksService = inject(BooksService);

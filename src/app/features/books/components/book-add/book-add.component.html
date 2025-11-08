@@ -1,1 +1,78 @@
-<p>book-add works!</p>
+<div class="row text-center my-4">
+  <h1>Crear Usuario</h1>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card">
+        <div class="card-body">
+          <form>
+            <div class="mb-3">
+              <label for="isbn" class="form-label">Código ISBN</label>
+              <input
+                type="text"
+                id="isbn"
+                class="form-control"
+                formControlName="isbn"
+                placeholder="Ingrese el código ISBN del libro"
+              />
+              <div class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label for="title" class="form-label">Título</label>
+              <input
+                type="text"
+                id="title"
+                class="form-control"
+                formControlName="title"
+                placeholder="Ingrese el título del libro"
+              />
+              <div class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label for="category" class="form-label">Categoría</label>
+              <select
+                formControlName="category"
+                id="category"
+                class="form-select"
+              >
+            <option [value]="category"></option>
+            </select>
+              <div class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label for="price" class="form-label">Precio</label>
+              <input
+                type="number"
+                id="price"
+                class="form-control"
+                formControlName="price"
+                placeholder="Ingrese el precio unitario del libro"
+              />
+              <div class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label for="physical_stock" class="form-label"
+                >Existencias físicas</label
+              >
+              <input
+                type="number"
+                id="physical_stock"
+                class="form-control"
+                formControlName="physical_stock"
+                placeholder="Ingrese las existencias físicas del libro"
+              />
+              <div class="invalid-feedback"></div>
+            </div>
+
+            <div class="d-flex gap-2 justify-content-end">
+              <button type="reset" class="btn btn-secondary">Cancelar</button>
+              <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

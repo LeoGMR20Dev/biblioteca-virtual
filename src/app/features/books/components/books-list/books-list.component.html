@@ -4,7 +4,7 @@
 
 <div class="container my-5">
   <div class="row">
-    <div class="col-10 text-end">
+    <div class="col d-flex gap-1 justify-content-end">
       <button class="btn btn-primary" (click)="onAddBook()">
         Agregar Libro
       </button>
@@ -23,7 +23,22 @@
     >
       <div class="card h-100">
         <div class="card-body">
-          <h5 class="card-title">{{ book.title }}</h5>
+          <h2 class="card-title fs-5 fw-bold text-center">{{ book.title }}</h2>
+          <p><span class="fw-semibold">ISBN:</span>&nbsp;{{ book.isbn }}</p>
+          <p><span class="fw-semibold">Precio:</span>&nbsp;{{ book.price }}</p>
+          <p>
+            <span class="fw-semibold">Existencias disponibles:</span>&nbsp;{{
+              book.physical_stock
+            }}
+          </p>
+          <div class="row">
+            <div class="col d-flex justify-content-center">
+              <button class="btn btn-warning">Editar</button>
+            </div>
+            <div class="col d-flex justify-content-center">
+              <button class="btn btn-danger">Eliminar</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

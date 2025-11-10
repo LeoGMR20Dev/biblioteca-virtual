@@ -9,3 +9,8 @@
 body {
   color: var(--color-white);
 }
+
+.image-preview {
+  object-fit: contain;
+  max-height: 275px;
+}

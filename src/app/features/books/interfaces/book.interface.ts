@@ -3,9 +3,11 @@ export interface IBook {
   isbn: string;
   title: string;
   category: BookCategory;
-  //   author: IAuthor;
+  authorFullname: string;
   price: number;
+  yearPublication: number;
   physicalStock: number;
+  imageCover: string;
 }
 
 export enum BookCategory {
@@ -16,8 +18,3 @@ export enum BookCategory {
   SUSPENSE = 'Suspenso',
   DISTOPY = 'Distopia',
 }
-// export interface IAuthor {
-//   id: string;
-//   firstName: string;
-//   lastName: string;
-// }

@@ -1,0 +1,10 @@
+img {
+  max-height: 400px;
+  object-fit: contain;
+}
+
+.text-wrap {
+  overflow-wrap: normal;
+  word-wrap: normal;
+  white-space: normal;
+}

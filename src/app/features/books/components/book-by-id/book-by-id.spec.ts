@@ -8,7 +8,7 @@ import BookByIdComponent from './book-by-id.component';
 import { BooksService } from '../../services/books.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BookCategory, IBook } from '../../interfaces/book.interface';
-import { of } from 'rxjs';
+import { of, throwError } from 'rxjs';
 import { ElementRef } from '@angular/core';
 
 describe('BookById Component', () => {
@@ -114,18 +114,36 @@ describe('BookById Component', () => {
     expect(router.navigate).toHaveBeenCalledWith(['/books']);
   });
 
-  it('should not navigate to books list page when the edit form is invalid', () => {
+  it('should not call updateBook if the submit fails', fakeAsync(() => {
+    component.bookForm.patchValue(mockBook);
+
+    fixture.detectChanges();
+
+    booksService.updateBook.and.returnValue(
+      throwError(() => new Error('Error al editar el libro'))
+    );
+
+    component.bookForm.patchValue(mockBookChanged);
+
+    spyOn(console, 'error');
+
+    expect(component.bookForm.valid).toBeTrue();
+    component.onSubmit();
+    tick();
+
+    expect(component.isSubmitting).toBeFalse();
+    expect(router.navigate).not.toHaveBeenCalled();
+
+    expect(console.error).toHaveBeenCalledWith(
+      'Error al editar el libro',
+      jasmine.any(Error)
+    );
+  }));
+
+  it('should not navigate to books list page and not call updateBook when the edit form is invalid', () => {
     component.bookForm.patchValue({ ...mockBookChanged, title: 'sd' });
     expect(component.bookForm.valid).toBeFalse();
 
-    component.onSubmit();
-
-    expect(booksService.updateBook).not.toHaveBeenCalled();
-    expect(router.navigate).not.toHaveBeenCalled();
-  });
-
-  it('should not call updateBook when form is invalid', () => {
-    component.bookForm.reset();
     component.onSubmit();
 
     expect(booksService.updateBook).not.toHaveBeenCalled();

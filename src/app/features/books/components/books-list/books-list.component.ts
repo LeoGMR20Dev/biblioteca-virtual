@@ -1,4 +1,4 @@
-import { AsyncPipe, CommonModule } from '@angular/common';
+import { AsyncPipe, CommonModule, TitleCasePipe } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -9,10 +9,11 @@ import { BooksService } from '../../services/books.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IBook } from '../../interfaces/book.interface';
+import { IsbnPipe } from '../../../../shared/pipes/isbn.pipe';
 
 @Component({
   selector: 'books-list',
-  imports: [AsyncPipe, CommonModule],
+  imports: [AsyncPipe, IsbnPipe, CommonModule],
   templateUrl: './books-list.component.html',
   styleUrl: './books-list.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

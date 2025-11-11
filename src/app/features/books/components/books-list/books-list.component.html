@@ -28,7 +28,11 @@
           />
           <div class="row">
             <div class="col-sm-6">
-              <p><span class="fw-semibold">ISBN:</span>&nbsp;{{ book.isbn }}</p>
+              <p>
+                <span class="fw-semibold">ISBN:</span>&nbsp;{{
+                  book.isbn | isbn
+                }}
+              </p>
               <p>
                 <span class="fw-semibold">Categoría:</span>&nbsp;{{
                   book.category
@@ -47,7 +51,9 @@
                 }}
               </p>
               <p>
-                <span class="fw-semibold">Precio ($):</span>&nbsp;{{ book.price }}
+                <span class="fw-semibold">Precio ($):</span>&nbsp;{{
+                  book.price
+                }}
               </p>
               <p>
                 <span class="fw-semibold">Existencias disponibles:</span

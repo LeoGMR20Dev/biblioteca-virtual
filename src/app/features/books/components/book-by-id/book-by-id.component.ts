@@ -104,7 +104,7 @@ export default class BookByIdComponent {
           this.router.navigate(['/books']);
         },
         error: (error) => {
-          console.error('Error updating book:', error);
+          console.error('Error al editar el libro', error);
           this.isSubmitting = false;
         },
       });

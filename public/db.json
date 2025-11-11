@@ -1,3 +1,26 @@
 {
-  "books": []
+  "books": [
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "isbn": "9780061120084",
+      "title": "Matar a un ruiseñor",
+      "category": "Aventura",
+      "authorFullname": "Harper Lee",
+      "price": 18.99,
+      "physicalStock": 12,
+      "yearPublication": 1960,
+      "imageCover": "https://tunovela.es/wp-content/uploads/81HwOsy48kL.jpg"
+    },
+    {
+      "id": "123e4567-e89b-12d3-a456-426614174000",
+      "isbn": "9780452284233",
+      "title": "1984",
+      "category": "Distopia",
+      "price": 16,
+      "authorFullname": "George Orwell",
+      "yearPublication": 1949,
+      "physicalStock": 8,
+      "imageCover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGMA59ru39NgwyaQJW2tlHFOcXtBhptomRiQ&s"
+    }
+  ]
 }

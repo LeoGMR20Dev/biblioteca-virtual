@@ -22,7 +22,6 @@ import { isbnValidator } from '../../../../shared/validators/isbnValidator';
   selector: 'book-by-id',
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './book-by-id.component.html',
-  styleUrl: './book-by-id.component.css',
 })
 export default class BookByIdComponent {
   private fb = inject(FormBuilder);

@@ -23,7 +23,6 @@ import { isbnValidator } from '../../../../shared/validators/isbnValidator';
   selector: 'book-add',
   imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './book-add.component.html',
-  styleUrl: './book-add.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class BookAddComponent {

@@ -1,0 +1,82 @@
+<div class="row text-center my-4">
+  <h1>Lista de usuarios</h1>
+</div>
+
+<div class="container my-3">
+  <div class="row">
+    <div class="col d-flex gap-1 justify-content-end">
+      <button class="btn btn-primary" (click)="onAddUser()">
+        Agregar Usuario
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div
+    class="row justify-content-center"
+    *ngIf="((users$ | async)?.length ?? 0) > 0; else noUsers"
+  >
+    <div class="col-10">
+      <div class="row">
+        <div class="col">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombres</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Usuario</th>
+                <th scope="col">Contraseña</th>
+                <th scope="col">Role</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (user of users$ | async; track user.id; let i = $index) {
+              <tr>
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{ user.firstName | titlecase }}</td>
+                <td>{{ user.lastName | titlecase }}</td>
+                <td>{{ user.userName }}</td>
+                <td>{{ user.password }}</td>
+                <td>{{ user.role }}</td>
+                <td class="d-flex gap-2">
+                  <button
+                    class="btn btn-warning btn-sm"
+                    (click)="onEditUser(user.id)"
+                    [disabled]="isDeleting() === user.id"
+                  >
+                    Editar
+                  </button>
+                  <button
+                    class="btn btn-danger btn-sm"
+                    (click)="onDeleteUser(user.id)"
+                    [disabled]="isDeleting() === user.id"
+                  >
+                    {{
+                      isDeleting() === user.id ? "Eliminando..." : "Eliminar"
+                    }}
+                  </button>
+                </td>
+              </tr>
+              } @empty {
+              <tr>
+                <td colspan="6" class="text-center">
+                  No hay usuarios registrados
+                </td>
+              </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noUsers>
+    <div class="text-center my-4 fw-semibold fs-5">
+      <p>No hay usuarios registrados</p>
+    </div>
+  </ng-template>
+</div>
